@@ -1,0 +1,22 @@
+{% extends "Seller/seller_temp.html" %}
+{% block body %}
+<form action="/newapp/seller_assignorder_delboy_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table class="table table-bordered">
+    <tr>
+      <td>Delivery Boy </td>
+
+      <td><select name="select" class="form-control" >
+        {% for i in data %}
+        <option value="{{ i.id }}">{{ i.delboy_name }}</option>
+        {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="hidden" name="hide"  value="{{ o_id }}" /></td>
+      <td><input type="submit" name="button" id="button" value="Assign" class="btn btn-success" /></td>
+    </tr>
+  </table>
+</form>
+
+{% endblock %}

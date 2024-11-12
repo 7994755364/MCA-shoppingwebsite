@@ -1,0 +1,19 @@
+{% extends "Admin/admintemp.html" %}
+{% block body %}
+
+<form action="/newapp/admin_edit_category_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table class="table table-bordered">
+    <tr>
+      <td>Name</td>
+      <td><input type="text" name="textfield" id="textfield" class="form-control" value="{{ data.cat_name }}" required /></td>
+    </tr>
+     <tr>
+      <td>Image</td>
+      <td><input type="file" name="filefield" id="filefield" class="form-control" /></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input type="submit"  class="btn btn-info" name="button" id="button"  value="Update" /></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

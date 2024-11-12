@@ -1,0 +1,54 @@
+{% extends "Seller/seller_temp.html" %}
+{% block body %}
+<form action="/newapp/seller_editprofile_load/" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table class="table table-bordered">
+    <tr>
+      <td colspan="2"><img src="{{ data.image }}" height="100" width="100" /></td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td>&nbsp;{{data.shop_name }}</td>
+    </tr>
+    <tr>
+      <td>GST_IN</td>
+      <td>&nbsp;{{ data.gst_in }}</td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td> {{ data.place }}&nbsp;</td>
+    </tr>
+    <tr>
+      <td>Post</td>
+      <td> {{ data.post }}</td>
+    </tr>
+    <tr>
+      <td>Pin Code</td>
+      <td> {{ data.pincode }}</td>
+    </tr>
+    <tr>
+      <td>Email Id</td>
+      <td> {{ data.email }}</td>
+    </tr>
+    <tr>
+      <td>Phone number</td>
+      <td>&nbsp;{{ data.phone }}</td>
+    </tr>
+    <tr>
+      <td>Category</td>
+      <td> {{ data.category }}</td>
+    </tr>
+    <tr>
+      <td>Latitude</td>
+      <td>&nbsp;{{ data.latitude }}</td>
+    </tr>
+    <tr>
+      <td>Longitude</td>
+      <td>&nbsp;{{ data.longitude }}</td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input type="submit" name="button" id="button" class="btn btn-success" value="Edit" /></td>
+    </tr>
+  </table>
+</form>
+
+{% endblock %}

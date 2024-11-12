@@ -1,0 +1,42 @@
+{% extends "Admin/admintemp.html" %}
+{% block body %}
+<form action="/newapp/admin_Add_deliveryboy_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table class="table table-bordered">
+    <tr>
+      <td>Name</td>
+      <td><input type="text" name="textfield" id="textfield" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td>House No/Name</td>
+      <td><input type="text" name="textfield2" id="textfield2" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td><input type="text" name="textfield3" id="textfield3" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td>Post</td>
+      <td><input type="text" name="textfield4" id="textfield4" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td>Pin Code</td>
+      <td><input type="text" name="textfield5" id="textfield5" class="form-control" pattern="[123456789][0123456789]{5}"  maxlength="6" required /></td>
+    </tr>
+    <tr>
+      <td>Email Id</td>
+      <td><input type="email" name="textfield11" id="textfield11" class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td>Phone number</td>
+      <td><input type="text" name="textfield6" id="textfield6" class="form-control" pattern="[6789][0123456789]{9}" maxlength="10" required /></td>
+    </tr>
+    <tr>
+      <td>Image</td>
+      <td><input type="file" name="fileField" id="fileField"  class="form-control" required /></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input type="submit" name="button" class="btn btn-info" id="button" value="Register" /></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

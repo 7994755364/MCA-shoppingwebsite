@@ -1,0 +1,36 @@
+{% extends "Seller/seller_temp.html" %}
+{% block body %}
+<form action="/newapp/seller_view_paymentreports_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">
+   <table class="pull-right">
+    <tr>
+      <td>Date</td>
+      <td><input type="date" placeholder="Date" name="textfield2" id="textfield2" /></td>
+      <td>To</td>
+      <td><input type="date" placeholder="To" name="textfield3" id="textfield3" /></td>
+      <td><input type="submit" name="button" id="button2" value="Filter" class="btn btn-info" /></td>
+    </tr>
+  </table>
+  <table class="table table-bordered">
+    <tr>
+      <td>#</td>
+      <td>Order Date</td>
+      <td>Buyer Details</td>
+      <td>Amount</td>
+      <td>Account no </td>
+      <td></td>
+    </tr>
+    {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.ORDER_ID.date }}</td>
+      <td>Name: {{ i.ORDER_ID.BUYER_ID.buyer_name }}<br/> Place: {{ i.ORDER_ID.BUYER_ID.place }}, {{ i.ORDER_ID.BUYER_ID.district }}<br/>Phone Number: {{ i.ORDER_ID.BUYER_ID.phone }}<br/> Email Id: {{ i.ORDER_ID.BUYER_ID.email }}</td>
+      <td>{{ i.amount }}</td>
+      <td>{{ i.account_no }}</td>
+      <td><a href="/newapp/seller_more_productoreders_load/{{ i.ORDER_ID.id}} " class="btn btn-success">More</a></td>
+    </tr>
+    {% endfor %}
+
+  </table>
+</form>
+
+{% endblock %}

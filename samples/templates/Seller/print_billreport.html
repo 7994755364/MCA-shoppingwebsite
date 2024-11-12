@@ -1,0 +1,130 @@
+{% extends "Seller/seller_temp.html" %}
+{% block body %}
+
+<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <div id="my_div">
+      <br>
+      <table style="width:90%" align="center">
+        <tr>
+          <td>
+            <h3>ORDER DETAILS</h3>
+          </td>
+        </tr>
+      </table>
+      <br><br>
+  <table style="width:90%" align="center">
+    <tr>
+      <td><b>Order No :</b> {{ data2.order_id }}</td>
+      <td align="right"><b>Date : </b>{{ data2.date }}</td>
+    </tr>
+  </table>
+      <br><br>
+  <table style="width:90%" align="center">
+    <tr>
+      <th colspan="2" align="center">BUYER DETAILS</th>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td>{{ data2.name}}</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>{{data2.email }}</td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td>{{ data2.phone }}</td>
+    </tr>
+  </table>
+    <br><br>
+
+  <table border="1" style="width:90%" align="center">
+    <tr>
+      <th colspan="3" align="center">PRODUCT DETAILS</th>
+    </tr>
+    <tr>
+        <td><b>#</b></td>
+      <td><b>PRODUCT NAME</b></td>
+      <td><b>PRICE</b></td>
+      <td><b>QUANTITY</b></td>
+      <td><b>AMOUNT</b></td>
+      <td><b>Discount</b></td>
+      <td><b>Offer Amount</b></td>
+    </tr>
+    {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.product_name }}</td>
+      <td>{{ i.product_price }}</td>
+      <td>{{ i.product_quantity }}</td>
+      <td>{{ i.amount }}</td>
+      <td>{{ i.disc }} </td>
+      <td>{{ i.offer_amount }}</td>
+    </tr>
+    {%  endfor %}
+  </table>
+      <br><br>
+      <table style="width:90%" align="center">
+        <tr>
+          <td align="center">
+            <h4><b>TOTAL AMOUNT :</b>{{ data2.total }}</h4>
+            <h4><b>PAYABLE AMOUNT :</b>{{ data2.payable }}</h4>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+<!-- button html code-->
+
+<div align="right" >
+    <button onclick="saveDiv('my_div',{{ data2.order_id }})" class="btn btn-success">GENERATE BILL</button>
+    <button onclick="printDiv('my_div','Title')" class="btn btn-success">Download</button>
+  </div>&nbsp;&nbsp;&nbsp;
+  <br>
+</form>
+<script>
+var doc = new jsPDF();
+
+ function saveDiv(divId,
+  order_id) {
+
+    var path=r'E:\New folder\sample\samples\newapp\static\bills\'+${order_id}+'.pdf';
+  let mywindow = window.open('', 'PRINT', 'height=650,width=900,top=100,left=150');
+
+  mywindow.document.write(`<html><head><title>Bill</title>`);
+  mywindow.document.write('</head><body >');
+  mywindow.document.write(document.getElementById(divId).innerHTML);
+  mywindow.document.write('</body></html>');
+
+  mywindow.document.close(); // necessary for IE >= 10
+  mywindow.focus(); // necessary for IE >= 10*/
+
+  mywindow.save(path);
+  // mywindow.close();
+
+  return true;
+}
+
+ function printDiv(divId,
+  title) {
+
+  let mywindow = window.open('', 'PRINT', 'height=650,width=900,top=100,left=150');
+
+  mywindow.document.write(`<html><head><title>${title}</title>`);
+  mywindow.document.write('</head><body >');
+  mywindow.document.write(document.getElementById(divId).innerHTML);
+  mywindow.document.write('</body></html>');
+
+  mywindow.document.close(); // necessary for IE >= 10
+  mywindow.focus(); // necessary for IE >= 10*/
+
+  mywindow.print();
+  // mywindow.close();
+
+  return true;
+}
+</script>
+
+
+
+{% endblock %}

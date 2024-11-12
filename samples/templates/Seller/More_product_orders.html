@@ -1,0 +1,72 @@
+{% extends "Seller/seller_temp.html" %}
+{% block body %}
+<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+    <h3>ORDER DETAILS</h3>
+  <table style="width:90%" align="center">
+    <tr>
+      <td><b>Order No :</b> {{ data2.order_id }}</td>
+      <td align="right"><b>Date : </b>{{ data2.date }}</td>
+    </tr>
+  </table>
+  <br><br>
+    <table class="table table-striped">
+    <tr>
+      <th colspan="3" align="center">BUYER DETAILS</th>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td>{{ data2.name}}</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>{{data2.email }}</td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td>{{ data2.phone }}</td>
+    </tr>
+  </table>
+    <br><br>
+
+  <table class="table table-bordered">
+    <tr>
+      <th colspan="7" align="center">PRODUCT DETAILS</th>
+    </tr>
+    <tr>
+      <td>#</td>
+      <td>Product Name</td>
+      <td>Price</td>
+      <td>Quantity</td>
+      <td>Amount</td>
+      <td>Discount</td>
+      <td>Offer Amount</td>
+    </tr>
+    {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.product_name }}</td>
+      <td>{{ i.product_price }}</td>
+      <td>{{ i.product_quantity }}</td>
+      <td>{{ i.amount }}</td>
+      <td>{{ i.disc }} </td>
+      <td>{{ i.offer_amount }}</td>
+    </tr>
+    {%  endfor %}
+  </table>
+    <br><br>
+  <div align="center">
+    <h4><b>TOTAL AMOUNT :</b>{{ data2.total }}</h4>
+    <h4><b>PAYABLE AMOUNT :</b>{{ data2.payable }}</h4>
+    </div>
+
+<!-- button html code-->
+
+<div align="right" >
+    <a href="/newapp/seller_billpreview/{{ data2.order_id }}" class="btn btn-success">Bill preview</a>
+  </div>&nbsp;&nbsp;&nbsp;
+  <br>
+</form>
+
+
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "Admin/admintemp.html" %}
+{% block body %}
+<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table class="table table-bordered">
+  <tr>
+    <td rowspan="4"><img src="{{ data.image }}" height="150" width="150"/></td>
+    <td>Shop name</td>
+    <td>{{ data.shop_name }}</td>
+  </tr>
+  <tr>
+    <td>Address</td>
+    <td>{{ data.place }}<br>{{ data.post }}<br/>{{ data.pincode }}</td>
+  </tr>
+  <tr>
+    <td>phone number</td>
+    <td>{{ data.phone }}</td>
+  </tr>
+  <tr>
+    <td>Email id</td>
+    <td>{{ data.email }}</td>
+  </tr>
+</table>
+    {% for i in rating %}
+  <table class="table table-bordered">
+    <tr>
+      <td rowspan="2"><img src="{{ i.USER_ID.image }}" height="100" width="100" /></td>
+      <td>Date</td>
+      <td>{{ i.date }}&nbsp;</td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td>{{  i.USER_ID.buyer_name }}&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3">&nbsp;{{ i.review }}</td>
+    </tr>
+    <tr>
+      <td colspan="3"> {{ i.rating }}</td>
+    </tr>
+  </table>
+{%  endfor %}
+</form>
+
+{% endblock %}

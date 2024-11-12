@@ -1,0 +1,58 @@
+{% extends "Admin/admintemp.html" %}
+{% block body %}
+<form action="/newapp/admin_add_category_post/"  method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table class="table table-success table-striped table table-hover table table-borderless">
+    <tr>
+      <td>Name</td>
+      <td><input type="text"  name="textfield" id="textfield" class="form-control" required/></td>
+    </tr>
+     <tr>
+      <td>Image</td>
+      <td><input type="file"  name="filefield" id="filefield" class="form-control"  required/></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+        <input type="submit" name="button" id="button" value="Add" class="btn btn-info" />
+     </td>
+    </tr>
+  </table>
+
+
+
+    <!--<table class="table">-->
+  <!--&lt;!&ndash;<thead>&ndash;&gt;-->
+    <!--&lt!&ndash;<tr>&ndash;&gt;-->
+      <!--&lt;!&ndash;<th scope="col">Name</th>&ndash;&gt;-->
+      <!--&lt;!&ndash;<th scope="col"><input type="text" name="textfield" id="textfield" required/></th>&ndash;&gt;-->
+      <!--&lt;!&ndash;<th scope="col">Last</th>&ndash;&gt;-->
+      <!--&lt;!&ndash;<th scope="col">Handle</th>&ndash;&gt;-->
+    <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+  <!--&lt;!&ndash;</thead>&ndash;&gt;-->
+  <!--<tbody>-->
+    <!--<tr>-->
+      <!--<th scope="row">Name</th>-->
+      <!--<td><input type="text" name="textfield" id="textfield" class="form-control" required/></td>-->
+      <!--&lt;!&ndash;<td>Otto</td>&ndash;&gt;-->
+      <!--&lt;!&ndash;<td>@mdo</td>&ndash;&gt;-->
+    <!--</tr>-->
+    <!--<tr>-->
+      <!--<th scope="row">Image</th>-->
+      <!--<td><input type="file" name="filefield" id="filefield" class="form-control" required/></td>-->
+      <!--&lt;!&ndash;<td>Thornton</td>&ndash;&gt;-->
+      <!--&lt;!&ndash;<td>@fat</td>&ndash;&gt;-->
+    <!--</tr>-->
+    <!--<tr>-->
+      <!--&lt;!&ndash;<th scope="ro2w">3</th>&ndash;&gt;-->
+      <!--<td></td>-->
+      <!--<td><input type="submit" name="button" id="button" value="Add" class="btn btn-success" /></td>-->
+      <!--&lt;!&ndash;<td>@twitter</td>&ndash;&gt;-->
+    <!--</tr>-->
+  <!--</tbody>-->
+<!--</table>-->
+
+</form>
+
+
+
+
+{% endblock %}

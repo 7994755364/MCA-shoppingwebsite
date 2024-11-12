@@ -1,0 +1,42 @@
+{% extends "Seller/seller_temp.html" %}
+{% block body %}
+<form action="/newapp/seller_view_productorder_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table class="pull-right">
+    <tr>
+      <!--<td>Buyer Name</td>-->
+      <td><input type="text" placeholder="Buyer Name" name="textfield" id="textfield" class="form-control"/></td>
+      <td><input type="submit" name="button" id="button" value="Search" class="btn btn-info"  /></td>
+      <td>Date</td>
+      <td><input type="date" placeholder="Date" name="textfield2" id="textfield2" class="form-control"/></td>
+      <td>To</td>
+      <td><input type="date" placeholder="To" name="textfield3" id="textfield3" class="form-control"/></td>
+      <td><input type="submit" name="button" id="button2" value="Filter" class="btn btn-info"  /></td>
+    </tr>
+  </table>
+  <table class="table table-bordered">
+    <tr>
+      <td>#</td>
+      <td>Date</td>
+      <td>Buyer Name</td>
+      <td>Amount</td>
+      <td>Place</td>
+      <td>Status</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.date}}</td>
+      <td>{{ i.BUYER_ID.buyer_name }}</td>
+      <td>{{ i.amount }}&nbsp;</td>
+      <td>{{ i.BUYER_ID.house_no_name }}<br/>{{ i.BUYER_ID.place }}<br/>{{ i.BUYER_ID.post }}<br/>{{ i.BUYER_ID.district }}<br/>{{ i.BUYER_ID.pincode }}</td>
+      <td>&nbsp;{{ i.status }}</td>
+      <td><a href="/newapp/seller_more_productoreders_load/{{ i.id }}" class="btn btn-success">More</a></td>
+      <td><a href="/newapp/seller_assignorder_delboy_load/{{ i.id }}" class="btn btn-success">Assign</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+
+{% endblock %}

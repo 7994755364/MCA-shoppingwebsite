@@ -1,0 +1,32 @@
+{% extends "Seller/seller_temp.html" %}
+{% block body %}
+<form action="/newapp/admin_view_category_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">
+
+    <table class="table table-bordered">
+        <tr>
+            <td>
+                <a href="/newapp/seller_add_offers_load/{{ product_id }}" class="btn btn-success">Add offer</a>
+            </td>
+        </tr>
+    <tr>
+      <td>#</td>
+      <td>Quantity 1</td>
+      <td>Quantity 2</td>
+      <td>Discount</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }} </td>
+      <td>{{ i.quantity_1 }}</td>
+      <td>{{ i.quantity_2 }}</td>
+      <td>{{ i.discount }}</td>
+      <td><a href="/newapp/seller_edit_offers/{{ i.id }}" class="btn btn-success">Edit</a></td>
+      <td><a href="/newapp/seller_delete_offers/{{ i.id }}" class="btn btn-danger">Delete</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+
+{% endblock %}

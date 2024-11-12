@@ -1,0 +1,75 @@
+{% extends "Seller/seller_temp.html" %}
+{% block body %}
+{% load static %}
+<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <!--{% for i in rating %}-->
+  <!--<table class="table table-bordered">-->
+    <!--<tr>-->
+      <!--<td rowspan="2"><img src="{{ i.USER_ID.image }}" height="100" width="100" /></td>-->
+      <!--<td>Date</td>-->
+      <!--<td>{{ i.date }}</td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+      <!--<td>Name</td>-->
+      <!--<td>{{ i.USER_ID.buyer_name }}</td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+       <!--<td>Review</td>-->
+      <!--<td colspan="3">{{ i.review }}</td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+      <!--<td colspan="3">{{ i.rating }}</td>-->
+    <!--</tr>-->
+  <!--</table>-->
+  <!--{% endfor %}-->
+
+
+    <div class="menu">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2>USER RATINGS</h2>
+                </div>
+                <div class="menu-tab">
+                    <div id="burgers" class="container tab-pane active">
+                            <div class="row">
+                              {% for i in rating %}
+                                <div class="col-lg-6 col-md-12" align="center">
+                                        <div class="menu-item">
+                                            <div class="menu-img">
+                                                <img src="{{ i.image }}" style="height:80%;width:80%"/>
+                                            </div>
+                                            <div class="menu-text">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <h3><span>{{ i.name }}</span></h3>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <p>
+                                                        {% for j in i.rating %}
+                                                            <img src="{% static 'star_yes.png' %}" style="height:30px;width:30px;"/>
+                                                        {% endfor %}
+                                                        {% for j in i.no_rating %}
+                                                            <img src="{% static 'star_no.png' %}" style="height:30px;width:30px;"/>
+                                                        {% endfor %}
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <p>{{ i.review }}</p>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                </div>
+                                    {% endfor %}
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+
+</form>
+
+{% endblock %}

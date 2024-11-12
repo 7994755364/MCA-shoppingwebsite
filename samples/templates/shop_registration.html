@@ -1,0 +1,212 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+
+<!--<body>-->
+<!--<form onsubmit="return validate()" action="/newapp/shopreg_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">-->
+  <!--<table border="1">-->
+    <!--<tr>-->
+      <!--<td>Name</td>-->
+      <!--<td><input type="text" name="textfield" id="textfield" required/></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+      <!--<td>GST_IN</td>-->
+      <!--<td><input type="text" name="textfield2" id="textfield2" required/></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+      <!--<td>Place</td>-->
+      <!--<td><input type="text" name="textfield3" id="textfield3" required/></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+      <!--<td>Post</td>-->
+      <!--<td><input type="text" name="textfield4" id="textfield4" required /></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+      <!--<td>Pin Code</td>-->
+      <!--<td><input type="text" name="textfield5" id="textfield5" required/></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+      <!--<td>Email Id</td>-->
+      <!--<td><input type="email" name="textfield11" id="textfield11" required /></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+      <!--<td>Phone number</td>-->
+      <!--<td><input type="text" name="textfield6" id="textfield6" required/></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+      <!--<td>Category</td>-->
+      <!--<td><select name="select" id="select">-->
+          <!--<option>textiles</option>-->
+          <!--<option>footwear</option>-->
+          <!--<option>grocery</option>-->
+      <!--</select></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+      <!--<td>Image</td>-->
+      <!--<td><input type="file" name="fileField" id="fileField" required/></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+      <!--<td>Latitude</td>-->
+      <!--<td><input type="text" name="textfield7" id="textfield7" required /></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+      <!--<td>Longitude</td>-->
+      <!--<td><input type="text" name="textfield8" id="textfield8" required/></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+      <!--<td>Password</td>-->
+      <!--<td><input type="password" name="textfield9" id="textfield9" required/></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+      <!--<td>Confirm Password</td>-->
+      <!--<td><input type="password" name="textfield10" id="textfield10" required /></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+      <!--<td colspan="2" align="center">-->
+        <!--<input type="submit" name="button" id="button" value="Register" />-->
+             <!--</td>-->
+    <!--</tr>-->
+  <!--</table>-->
+<!--</form>-->
+<!--<script>-->
+    <!--function validate() {-->
+        <!--var psw=document.getElementById('textfield9').value;-->
+        <!--var cpsw=document.getElementById('textfield10').value;-->
+
+        <!--if(psw!=cpsw){-->
+            <!--alert('Password mismatch');-->
+            <!--return false;-->
+        <!--}-->
+        <!--return true;-->
+    <!--}-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+{% load static %}
+<!--<!doctype html>-->
+<html lang="en">
+  <head>
+  	<title>SHOPPING APP </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="{% static 'login_temp/https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap' %}" rel="stylesheet">
+
+	<link rel="stylesheet" href="{% static 'login_temp/https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %}">
+
+	<link rel="stylesheet" href="{% static 'login_temp/css/style.css' %}">
+
+	  <style>
+		  body{
+		  background-image: url("{% static 'login_temp/images/bg.jpg' %}");
+		  }
+	  </style>
+	</head>
+	<body class="img js-fullheight" >
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">REGISTRATION</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap p-0">
+		      	<!--<h3 class="mb-4 text-center">Have an account?</h3>-->
+		      	<form onsubmit="return validate()" action="/newapp/shopreg_post/" method="post" enctype="multipart/form-data"  class="signin-form">
+		      		<div class="form-group">
+		      			<input type="text" class="form-control" placeholder="NAME" name="textfield" required>
+		      		</div>
+	            <div class="form-group">
+		      			<input type="text" class="form-control" placeholder="GST_IN" name="textfield2" required>
+		      		</div>
+	            <div class="form-group">
+		      			<input type="text" class="form-control" placeholder="PLACE" name="textfield3" required>
+		      		</div>
+	            <div class="form-group">
+		      			<input type="text" class="form-control" placeholder="POST" name="textfield4" required>
+		      		</div>
+	            <div class="form-group">
+		      			<input type="text" class="form-control" placeholder="PIN" name="textfield5" pattern="[123456789][0123456789]{5}" maxlength="6" required>
+		      		</div>
+	            <div class="form-group">
+		      			<input type="text" class="form-control" placeholder="EMAIL" name="textfield11" required>
+		      		</div>
+	            <div class="form-group">
+		      			<input type="text" class="form-control" placeholder="PHONE" name="textfield6" pattern="[6789][0123456789]{9}" maxlength="10" required>
+		      		</div>
+	            <div class="form-group">
+                        <label for="select">CATEGORY</label>
+		      			<select name="select" class="form-control"  id="select">
+                          <option>Textiles</option>
+                          <option>Footwear</option>
+                          <option>Grocery</option>
+                          <option>Stationary</option>
+                          <option>Electronics</option>
+                          <option>Furniture</option>
+                          <option>Mobile</option>
+                      </select>
+		      		</div>
+	            <div class="form-group">
+                        <label for="fileField">Choose Image</label>
+		      			<input type="file" class="form-control" name="fileField" id="fileField" required>
+		      		</div>
+	            <div class="form-group">
+		      			<input type="text" class="form-control" placeholder="LATITUDE" name="textfield7" required>
+		      		</div>
+	            <div class="form-group">
+		      			<input type="text" class="form-control" placeholder="LONGITUDE" name="textfield8" required>
+		      		</div>
+	            <div class="form-group">
+	              <input id="password-field" type="password" class="form-control" name="textfield9" placeholder="PASSWORD" required>
+	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+	            </div>
+	            <div class="form-group">
+	              <input id="password-field2" type="password" class="form-control" name="textfield10" placeholder="CONFIRM PASSWORD" required>
+	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+	            </div>
+	            <div class="form-group">
+	            	<button type="submit" class="form-control btn btn-primary submit px-3">REGISTER</button>
+	            </div>
+	          </form>
+		      </div>
+				</div>
+			</div>
+		</div>
+	</section>
+    <style>
+      option{
+      color:#000000;
+      background:#ffffff;
+      }
+      label{
+      color:#f1ecf0;
+      }
+    </style>
+
+	<script src="{% static 'login_temp/js/jquery.min.js' %}"></script>
+  <script src="{% static 'login_temp/js/popper.js' %}"></script>
+  <script src="{% static 'login_temp/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'login_temp/js/main.js' %}"></script>
+<script>
+    function validate() {
+        var psw=document.getElementById('textfield9').value;
+        var cpsw=document.getElementById('textfield10').value;
+
+        if(psw!=cpsw){
+            alert('Password mismatch');
+            return false;
+        }
+        return true;
+    }
+</script>
+	</body>
+</html>
+

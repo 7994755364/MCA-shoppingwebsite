@@ -1,0 +1,24 @@
+{% extends "Seller/seller_temp.html" %}
+{% block body %}
+<form action="/newapp/seller_edit_offers_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table class="table table-bordered">
+    <tr>
+      <td>Quantity 1</td>
+      <td><input type="text" name="textfield" id="textfield" class="form-control" value="{{ data.quantity_1 }}" required/>
+      <tr>
+      <td>Quantity 2</td>
+      <td><input type="text" name="textfield1" id="textfield1"  class="form-control" value="{{ data.quantity_2 }}" required/></td>
+    </tr>
+      <tr>
+      <td>Discount</td>
+      <td><input type="text" name="textfield2" id="textfield2" class="form-control"  value="{{ data.discount }}" required/></td>
+    </tr>
+      <tr>
+      <td colspan="2" align="center">
+        <input type="submit" name="button" id="button" value="UPDATE" class="btn btn-success" />
+     </td>
+    </tr>
+  </table>
+</form>
+
+{% endblock %}

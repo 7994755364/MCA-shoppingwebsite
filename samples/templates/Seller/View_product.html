@@ -1,0 +1,38 @@
+{% extends "Seller/seller_temp.html" %}
+{% block body %}
+<form action="/newapp/seller_viewproduct_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table class="pull-right">
+    <tr>
+      <!--<td>Product Name</td>-->
+      <td><input type="text" placeholder="Product Name" name="textfield" id="textfield" class="form-control"  /></td>
+      <td><input type="submit" name="button3" id="button3" value="Search"  class="btn btn-info"  /></td>
+    </tr>
+  </table>
+
+  <table class="table table-bordered">
+    <tr>
+      <td>#</td>
+      <td>Product Name</td>
+      <td>Category</td>
+      <td>Rate</td>
+      <td>Image</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td> </td>
+    </tr>
+    {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.product_name }}</td>
+      <td>&nbsp;{{ i.PRODUCT_CATEGORY.cat_name }}</td>
+      <td>{{ i.product_rate }}</td>
+      <td><img src="{{ i.image }}" height="100" width="100" alt=""/></td>
+      <td><a href="/newapp/seller_editproduct_load/{{ i.id }}" class="btn btn-success">Edit</a></td>
+      <td><a href="/newapp/remove_product/ {{ i.id }}" class="btn btn-danger">Remove</a></td>
+      <td><a href="/newapp/seller_view_offers_load/{{ i.id }}" class="btn btn-success">Offer</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+
+{% endblock %}
